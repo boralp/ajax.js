@@ -1,7 +1,7 @@
 var ajax = {
     request: function(method, url, args, callback, err, progress) {
         if (Object(args) === args) {
-            args = Object.keys(args).map(function(key) {
+            url += '?' + Object.keys(args).map(function(key) {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(args[key]);
             }).join('&');
         } else {
@@ -27,7 +27,7 @@ var ajax = {
         xhr.onerror = function(e) {
             err(this.statusText, e);
         };
-        xhr.open(method, url + (method === 'GET' ? '?' + args : ''), true);
+        xhr.open(method, url, true);
         xhr.send(method === 'POST' ? args : null);
     }
 };

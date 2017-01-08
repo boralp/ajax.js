@@ -4,7 +4,7 @@ var ajax = function(method, url, args, callback, err, progress) {
             return encodeURIComponent(k) + '=' + encodeURIComponent(args[k]);
         }).join('&');
     } else {
-        args = new FormData(document.getElementById(args));
+        args = new FormData(document.querySelector(args));
     }
     var xhr = new XMLHttpRequest();
     progress = document.querySelector(progress);

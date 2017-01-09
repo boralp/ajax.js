@@ -17,13 +17,13 @@ To install an-blog you only need to pull or download the files into your server.
 ### Pre-defined parameters
 You can declare the parameters send by get request by hand.
 ```
-ajax.request('GET', 'https://localhost:3000', {
+ajax('GET', 'https://localhost:3000', {
     'First name': 'Bora',
     'Middle name': 'Alp',
     'Last name': 'Arat',
     'birthday': document.getElementById('birthday').value
 }, function (data) {
-    console.log(data);
+    console.log(data.response);
 }, function (error) {
     console.log('An error occured, please check connection:' + error);
 });
@@ -31,8 +31,8 @@ ajax.request('GET', 'https://localhost:3000', {
 ### FormData dynamic parameters
 FormData() can parse the inputs in a form automatically, you need to give the `id` of the form as a `string` data.
 ```
-ajax.request('GET', 'https://localhost:3000', 'my-new-form', function (data) {
-    console.log(data);
+ajax('GET', 'https://localhost:3000', '#my-new-form', function (data) {
+    console.log(data.response);
 }, function (error) {
     console.log('An error occured, please check connection:' + error);
 });
@@ -43,22 +43,22 @@ Post request automatically handles any file upload.
 ### Pre-defined parameters
 You can declare the parameters send by get request by hand.
 ```
-ajax.request('POST', 'https://localhost:3000', {
+ajax('POST', 'https://localhost:3000', {
     'First name': 'Bora',
     'Middle name': 'Alp',
     'Last name': 'Arat',
     'birthday': document.getElementById('birthday').value
 }, function (data) {
-    console.log(data);
+    console.log(data.response);
 }, function (error) {
     console.log('An error occured, please check connection:' + error);
 });
 ```
 ### FormData dynamic parameters
-FormData() can parse the inputs in a form automatically, you need to give the `id` of the form as a `string` data.
+FormData() can parse the inputs in a form automatically, you need to give the `id` or `selector` of the form as a `string` data.
 ```
-ajax.request('POST', 'https://localhost:3000', 'my-new-form', function (data) {
-    console.log(data);
+ajax('POST', 'https://localhost:3000', '#my-new-form', function (data) {
+    console.log(data.response);
 }, function (error) {
     console.log('An error occured, please check connection:' + error);
 });
